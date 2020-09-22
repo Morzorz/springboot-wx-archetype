@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.morzorz</groupId>
+  <artifactId>springboot-wx-archetype</artifactId>
+  <packaging>maven-archetype</packaging>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>springboot-wx-archetype</name>
+  <url>http://maven.apache.org</url>
+
+  <build>
+    <finalName>${project.artifactId}</finalName>
+
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.archetype</groupId>
+        <artifactId>archetype-packaging</artifactId>
+        <version>2.4</version>
+      </extension>
+    </extensions>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-archetype-plugin</artifactId>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <configuration>
+            <encoding>UTF-8</encoding>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+
+  </build>
+  <repositories>
+    <repository>
+      <id>public-bak</id>
+      <url>http://nexus.yixincapital.com/repository/public/</url>
+      <releases>
+      </releases>
+      <snapshots>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <distributionManagement>
+    <repository>
+      <id>releases</id>
+      <name>releases</name>
+      <url>http://nexus.yixincapital.com/repository/releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>snapshots</name>
+      <url>http://nexus.yixincapital.com/repository/snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+</project>
+

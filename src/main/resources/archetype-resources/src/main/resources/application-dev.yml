@@ -1,0 +1,32 @@
+server:
+  port: 8081
+
+qywxapi:
+  getaccesstoken : https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=%s&corpsecret=%s
+  getuserinfo : https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=%s&code=%s
+  authorize : https://open.weixin.qq.com/connect/oauth2/authorize?appid=%s&redirect_uri=%s&response_type=code&scope=snsapi_base&state=%s#wechat_redirect
+  sendmessage : https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=%s
+  taghandle : https://qyapi.weixin.qq.com/cgi-bin/tag/%s?access_token=%s
+
+spring:
+  # datasource 数据源配置内容
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123QWE,./
+  redis:
+    cluster:
+      nodes: Centos6701:6379,Centos6701:6380,Centos6702:6380,Centos6702:6379,Centos6703:6380,Centos6703:6379
+    jedis:
+      pool:
+        max-active: 8
+        min-idle: 0
+    #连接超时时间，毫秒单位
+    timeout: 3000
+
+# mybatis 配置内容
+mybatis:
+  config-location: classpath:mybatis-config.xml # 配置 MyBatis 配置文件路径
+  mapper-locations: classpath:mapper/*.xml # 配置 Mapper XML 地址
+  type-aliases-package: ${basepackage}.dao # 配置数据库实体包路径
