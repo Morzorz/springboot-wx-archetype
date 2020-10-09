@@ -61,7 +61,7 @@ public class AopLogConsole {
             log.error(ex.getMessage(), ex);
         }
         //根据是否存在注解 判断是否要发送错误提醒
-        if (declaredMethod.getAnnotation(ErrorSend.class) != null) {
+        if (declaredMethod!=null&&declaredMethod.getAnnotation(ErrorSend.class) != null) {
             ErrorSend customAt = declaredMethod.getAnnotation(ErrorSend.class);
             //注意，不要给sendErrorMessage方法添加@CustomAt注解，可能陷入循环调用，导致栈溢出
             sendErrorMessage(String.format(MSG,customAt.value(),methodName,e),USERS,customAt.agentId());
